@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="use_sim_time" default="true"/>
-  <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+  <param name="/use_sim_time" value="$(arg use_sim_time)"/> 
 
   <arg name="rviz" default="true" />
   <arg name="dataset" default="botanical_garden_osnabrueck" />
@@ -20,6 +20,11 @@
     <param name="mesh_map/mesh_part" value="$(arg part)"/>
   </node>
   
+
+  <!-- SMACH Navigation State Machine -->
+  <node pkg="turtlebot3_mesh_nav" type="navigation_sm.py" name="navigation_smach" output="screen"/>
+  
+
   <!-- RViz with config -->
   <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot3_mesh_nav)/$(arg dir)/$(arg dataset).rviz" />
 
