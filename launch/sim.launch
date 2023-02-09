@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+
 <launch>
 	<arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
 
@@ -16,7 +16,7 @@
 
     <arg name="x_pos" default="0.0"/>
     <arg name="y_pos" default="0.0"/>
-    <arg name="z_pos" default="2.5"/>
+    <arg name="z_pos" default="2"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(find turtlebot3_mesh_nav)/worlds/botanical_garden.world"/>
@@ -34,7 +34,7 @@
 
 
     <!-- Publish map tf -->
-    <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 -2.5 0 0 0 map odom 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 -2.8 -3.6 0 0 map odom 10"/>
 
 
 </launch>
