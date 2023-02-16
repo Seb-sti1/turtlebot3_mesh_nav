@@ -33,6 +33,26 @@ To start the navigation you should publish on topic `/move_base_flex/move_base/g
 
 Also, you can simply do: `roslaunch turtlebot3_mesh_nav start_experiment.launch`. _Be aware that the turtlebot will slip on the terrain for this path_.
 
+## Graph
+
+```mermaid
+graph TD
+    A[move_base_simple/goal] --> B(move_base_flex/move_base)
+    C(move_base) <--> B
+    style A fill:#f9f
+    style B fill:#f9f
+    style C fill:#f9f
+
+
+    F([make_plan])<-->D
+    B --> D(move_base_flex/get_path)
+    D --> E(move_base_flex/exe_path)
+```
+
+Square : topic, rounded corner square : action server, rounded side square : service server
+
+In purple the action/service/topic created by move_base_legacy_relay (pkg mbf_costmap_nav: script/move_base_legacy_relay.py). Others created by mbf_abstract_nav.
+
 </br>
 </br>
 </br>
